@@ -940,3 +940,43 @@ git commit -m "Clean repo and apply .gitignore"
 git push origin main
 ```
 
+## Change your repository's remote from HTTPS to SSH
+
+First check:
+
+```bash
+git remote -v
+```
+
+Currently we have:
+
+```text
+origin	https://github.com/ravichandrakorivi/git.git (fetch)
+origin	https://github.com/ravichandrakorivi/git.git (push)
+```
+
+Change it to SSH:
+
+```bash
+git remote set-url origin git@github.com:ravichandrakorivi/git.git
+```
+
+Check again:
+
+```bash
+git remote -v
+```
+
+You should now see:
+
+```text
+origin	git@github.com:ravichandrakorivi/git.git (fetch)
+origin	git@github.com:ravichandrakorivi/git.git (push)
+```
+
+Now, for pushing, simply run:
+
+```bash
+git push
+```
+
