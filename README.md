@@ -77,6 +77,9 @@ git config --global user.name
 git config --gloabl user.email
 ```
 
+Use `--global` to set the value for every repository on your computer.
+Use `--local` (the default) to set it only for the current repository.
+
 ## Create a GitHub account
 
 If you don't already have one, create an account at: [GitHub](https://github.com/).
@@ -437,6 +440,8 @@ Or everything in the current directory:
 
 ```bash
 git add .
+git add --all
+git add -A
 ```
 
 Then check:
@@ -450,6 +455,24 @@ You should see something like:
 ```text
 Changes to be committed:
     new file: list_files.sh
+```
+
+An untracked file is a file that exists in your project folder but is not yet being tracked by Git. In other words, Git knows that the file exists in the working directory, but it has not yet been added to the repository.
+
+A tracked file is a file that Git is monitoring for changes. To start tracking a new file, you use `git add` to place it in the **staging area**, and then commit it using `git commit`.
+
+## Unstage a File
+
+If you staged a file by mistake, you can remove it from the staging area (unstage it) with:
+
+```bash
+git restore --staged list_files.sh
+```
+
+or
+
+```bash
+git reset HEAD list_files.sh
 ```
 
 ## Make your first commit
@@ -820,7 +843,20 @@ main
  
  You want to experiment with new feature.
 
- Create a branch:
+ ### Create a branch:
+
+```bash
+git branch new-feature
+```
+
+### Switch to new branch
+
+You are still on 'main' branch. To start coding on the new branch, you must manually run:
+
+```bash
+git switch new-feature
+```
+### Creating a new branch & switching to it in a single go
 
  ```bash
  git switch -c new-feature
@@ -848,6 +884,24 @@ git push -u origin new-feature
 ```
 
 Then you can create a Pull Request on GitHub to merge it into `main`.
+
+## List all the branches in a repo
+
+```bash
+git branch
+```
+
+## Switching between branches
+
+```bash
+git checkout new-feature
+```
+
+## Deleting a branch
+
+```bash
+git branch -d new-feature
+```
 
 ## Pull Request
 
