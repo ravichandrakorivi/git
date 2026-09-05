@@ -80,6 +80,14 @@ git config --gloabl user.email
 Use `--global` to set the value for every repository on your computer.
 Use `--local` (the default) to set it only for the current repository.
 
+## Set `main` the initial branch
+
+GitHub’s default branch is `main`.
+
+```bash
+git config --global init.defaultBranch main
+```
+
 ## Create a GitHub account
 
 If you don't already have one, create an account at: [GitHub](https://github.com/).
